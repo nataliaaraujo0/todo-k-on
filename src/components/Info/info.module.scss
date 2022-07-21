@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  width: 160px;
+  height: 19px;
+  justify-content: space-around;
+  .strongCreateTask {
+    color: blue;
+  }
+
+  .strongWithConcluded {
+    color: var(--blue-800);
+  }
+
+  .icon {
+    width: 25px;
+    height: 19px;
+    background: var(--blue-800);
+    color: aliceblue;
+    border-radius: 8px;
+    text-align: center;
+  }
+}
