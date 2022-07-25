@@ -19,6 +19,7 @@ export function Task({ task }: TaskProps) {
         colorScheme={"purple"}
         borderColor={"purple.300"}
         className={styles.checkbox}
+        isChecked={task.isComplete}
       ></Checkbox>
 
       <Text maxWidth={"600px"} color={"white"}>

@@ -1,8 +1,7 @@
 export type Task = {
   title: string;
-  complete?: boolean;
+  isComplete: boolean;
 };
 export interface TaskProps {
-  id?: number;
   task: Task;
 }
