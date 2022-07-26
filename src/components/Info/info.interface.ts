@@ -1,5 +1,5 @@
 export interface infoProps {
   title: string;
-  total: number;
+  total: string;
   hasColorTitle?: boolean;
 }

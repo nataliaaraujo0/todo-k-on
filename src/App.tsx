@@ -2,7 +2,7 @@ import { Header } from "./components/Header";
 
 import "../styles/global.scss";
 import { NewTask } from "./components/NewTask";
-import { Tasks } from "./components/Tasks";
+import { TasksList } from "./components/TasksList";
 import { Flex } from "@chakra-ui/react";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         gridTemplateColumns={"1fr"}
       >
         <NewTask />
-        <Tasks />
+        <TasksList />
       </Flex>
     </>
   );

@@ -1,7 +1,4 @@
-export type Task = {
+export interface TaskProps {
   title: string;
   isComplete: boolean;
-};
-export interface TaskProps {
-  task: Task;
 }
