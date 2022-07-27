@@ -1,13 +1,17 @@
 import { Flex } from "@chakra-ui/react";
 import { Info } from "../Info";
 import { Task } from "../Task";
+import { v4 as uuidv4 } from "uuid";
 
 export function TasksList() {
   const tasks = [
-    { id: 1, task: { title: "comprar uma moto", isComplete: false } },
-    { id: 2, task: { title: "Comer aquela pizza", isComplete: false } },
-    { id: 3, task: { title: "Jogar aquele valorant", isComplete: true } },
+    { id: uuidv4(), task: { title: "comprar uma moto", isComplete: false } },
+    {
+      id: uuidv4(),
+      task: { title: "Jogar aquele valorant", isComplete: true },
+    },
   ];
+  console.log(tasks);
   const handleTaskCounter = () => {
     const concluded: any = [];
 
