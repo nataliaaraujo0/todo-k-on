@@ -20,7 +20,7 @@ export function CardTask({ title, isComplete }: TaskProps) {
         borderColor={"purple.300"}
         className={styles.checkbox}
         isChecked={isComplete}
-      ></Checkbox>
+      />
 
       <Text maxWidth={"600px"} color={"white"}>
         {title}

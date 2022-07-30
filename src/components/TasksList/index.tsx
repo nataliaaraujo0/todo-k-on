@@ -7,16 +7,20 @@ import { useState } from "react";
 
 export function TasksList() {
   const [tasks, setTasks] = useState([
-    { id: uuidv4(), title: "comprar pizza", isComplete: false },
-    { id: uuidv4(), title: "Assar bolo", isComplete: true },
-    { id: uuidv4(), title: "Ver anime", isComplete: true },
+    { id: uuidv4(), title: "Pedir pizza", isComplete: true },
+    {
+      id: uuidv4(),
+      title: "Começar no temporada de Boku No Hero",
+      isComplete: false,
+    },
   ]);
-
+  console.log(tasks);
   const handleCreateNewTask = () => {
     event.preventDefault();
 
-    console.log(event.target.task.value);
-    setTasks([...tasks, tasks.length + 1]);
+    const newTaskText = event.target.task.value;
+
+    setTasks([...tasks, newTaskText]);
   };
 
   const handleTaskCounter = () => {
@@ -36,13 +40,14 @@ export function TasksList() {
       <Flex justifyContent={"space-between"} w={" 736px"} marginBottom={"20px"}>
         <form onSubmit={handleCreateNewTask}>
           <Input
-            placeholder="Adicionar uma nova tarefa"
             w={" 500px"}
             bg={"gray.700"}
-            _placeholder={{ color: "gray" }}
             color={"white"}
+            _placeholder={{ color: "gray" }}
+            placeholder="Adicionar uma nova tarefa"
             name="task"
           />
+
           <Button rightIcon={<AddIcon />} colorScheme={"gray"} variant="solid">
             Criar
           </Button>
