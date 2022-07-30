@@ -1,31 +1,29 @@
-import { Flex, FormControl, Input, Button } from "@chakra-ui/react";
+import { Flex, Input, Button } from "@chakra-ui/react";
 import { Info } from "../Info";
 import { CardTask } from "../CardTask";
 import { v4 as uuidv4 } from "uuid";
 import { AddIcon } from "@chakra-ui/icons";
+import { useState } from "react";
 
 export function TasksList() {
-  const tasks = [
-    { id: uuidv4(), task: { title: "comprar uma moto", isComplete: false } },
-    {
-      id: uuidv4(),
-      task: { title: "Jogar aquele valorant", isComplete: true },
-    },
-    {
-      id: uuidv4(),
-      task: { title: "Dar comida pro peixe", isComplete: true },
-    },
-  ];
+  const [tasks, setTasks] = useState([
+    { id: uuidv4(), title: "comprar pizza", isComplete: false },
+    { id: uuidv4(), title: "Assar bolo", isComplete: true },
+    { id: uuidv4(), title: "Ver anime", isComplete: true },
+  ]);
+
   const handleCreateNewTask = () => {
     event.preventDefault();
-    console.log("event.target ok");
+
+    console.log(event.target.task.value);
+    setTasks([...tasks, tasks.length + 1]);
   };
 
   const handleTaskCounter = () => {
     const concluded: any = [];
 
     tasks.map((task) => {
-      if (task.task.isComplete) {
+      if (task.isComplete) {
         concluded.push(task);
       }
     });
@@ -43,6 +41,7 @@ export function TasksList() {
             bg={"gray.700"}
             _placeholder={{ color: "gray" }}
             color={"white"}
+            name="task"
           />
           <Button rightIcon={<AddIcon />} colorScheme={"gray"} variant="solid">
             Criar
@@ -64,7 +63,13 @@ export function TasksList() {
 
       <Flex flexDirection={"column"}>
         {tasks.map((task) => {
-          return <CardTask key={task.id} task={task.task} />;
+          return (
+            <CardTask
+              key={task.id}
+              title={task.title}
+              isComplete={task.isComplete}
+            />
+          );
         })}
       </Flex>
     </Flex>

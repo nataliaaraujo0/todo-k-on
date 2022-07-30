@@ -3,7 +3,7 @@ import { Checkbox, Flex, Text } from "@chakra-ui/react";
 import { TaskProps } from "./task.interface";
 import styles from "./task.module.scss";
 
-export function CardTask({ task }: TaskProps) {
+export function CardTask({ title, isComplete }: TaskProps) {
   return (
     <Flex
       justifyContent={"space-around"}
@@ -19,11 +19,11 @@ export function CardTask({ task }: TaskProps) {
         colorScheme={"purple"}
         borderColor={"purple.300"}
         className={styles.checkbox}
-        isChecked={task.isComplete}
+        isChecked={isComplete}
       ></Checkbox>
 
       <Text maxWidth={"600px"} color={"white"}>
-        {task.title}
+        {title}
       </Text>
 
       <DeleteIcon
