@@ -1,7 +1,8 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, FormControl, Input, Button } from "@chakra-ui/react";
 import { Info } from "../Info";
 import { CardTask } from "../CardTask";
 import { v4 as uuidv4 } from "uuid";
+import { AddIcon } from "@chakra-ui/icons";
 
 export function TasksList() {
   const tasks = [
@@ -15,6 +16,10 @@ export function TasksList() {
       task: { title: "Dar comida pro peixe", isComplete: true },
     },
   ];
+  const handleCreateNewTask = () => {
+    event.preventDefault();
+    console.log("event.target ok");
+  };
 
   const handleTaskCounter = () => {
     const concluded: any = [];
@@ -27,8 +32,24 @@ export function TasksList() {
 
     return concluded.length;
   };
+
   return (
     <Flex w={" 736px"} h={"527px"} flexDirection={"column"} marginTop={"64px"}>
+      <Flex justifyContent={"space-between"} w={" 736px"} marginBottom={"20px"}>
+        <form onSubmit={handleCreateNewTask}>
+          <Input
+            placeholder="Adicionar uma nova tarefa"
+            w={" 500px"}
+            bg={"gray.700"}
+            _placeholder={{ color: "gray" }}
+            color={"white"}
+          />
+          <Button rightIcon={<AddIcon />} colorScheme={"gray"} variant="solid">
+            Criar
+          </Button>
+        </form>
+      </Flex>
+
       <Flex justifyContent={"space-between"}>
         {tasks.length > 0 && (
           <Info
