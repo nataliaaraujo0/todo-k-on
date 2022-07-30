@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import { Info } from "../Info";
-import { Task } from "../Task";
+import { CardTask } from "../CardTask";
 import { v4 as uuidv4 } from "uuid";
 
 export function TasksList() {
@@ -10,8 +10,12 @@ export function TasksList() {
       id: uuidv4(),
       task: { title: "Jogar aquele valorant", isComplete: true },
     },
+    {
+      id: uuidv4(),
+      task: { title: "Dar comida pro peixe", isComplete: true },
+    },
   ];
-  console.log(tasks);
+
   const handleTaskCounter = () => {
     const concluded: any = [];
 
@@ -39,7 +43,7 @@ export function TasksList() {
 
       <Flex flexDirection={"column"}>
         {tasks.map((task) => {
-          return <Task key={task.id} task={task.task} />;
+          return <CardTask key={task.id} task={task.task} />;
         })}
       </Flex>
     </Flex>

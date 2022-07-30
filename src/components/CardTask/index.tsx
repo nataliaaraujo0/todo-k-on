@@ -3,7 +3,7 @@ import { Checkbox, Flex, Text } from "@chakra-ui/react";
 import { TaskProps } from "./task.interface";
 import styles from "./task.module.scss";
 
-export function Task({ task }: TaskProps) {
+export function CardTask({ task }: TaskProps) {
   return (
     <Flex
       justifyContent={"space-around"}
