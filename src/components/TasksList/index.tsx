@@ -14,7 +14,14 @@ export function TasksList() {
       isComplete: false,
     },
   ]);
+
+  const [newTaskTextt, setNewTaskTextt] = useState("");
+
   console.log(tasks);
+
+  const handleNewTaskChange = () => {
+    console.log("teste");
+  };
 
   const handleCreateNewTask = () => {
     event.preventDefault();
@@ -29,6 +36,7 @@ export function TasksList() {
 
     setTasks([...tasks, newTask]);
   };
+
   const handleTaskCounter = () => {
     const concluded: any = [];
 
@@ -52,6 +60,7 @@ export function TasksList() {
             _placeholder={{ color: "gray" }}
             placeholder="Adicionar uma nova tarefa"
             name="task"
+            onChange={handleNewTaskChange}
           />
 
           <Button rightIcon={<AddIcon />} colorScheme={"gray"} variant="solid">
