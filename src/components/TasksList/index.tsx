@@ -75,7 +75,12 @@ export function TasksList({ id }: TaskListProps) {
             onChange={handleNewTaskChange}
           />
 
-          <Button rightIcon={<AddIcon />} colorScheme={"gray"} variant="solid">
+          <Button
+            rightIcon={<AddIcon />}
+            colorScheme={"gray"}
+            variant="solid"
+            onClick={handleCreateNewTask}
+          >
             Criar
           </Button>
         </form>
