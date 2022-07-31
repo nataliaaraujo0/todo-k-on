@@ -3,10 +3,12 @@ import { Checkbox, Flex, Text } from "@chakra-ui/react";
 import { TaskProps } from "./task.interface";
 import styles from "./task.module.scss";
 
-export function CardTask({ title, isComplete }: TaskProps) {
-  const handleDeleteTask = (id: string) => {
-    console.log(`Ola${id}`);
+export function CardTask({ title, isComplete, id, OnDeleteTask }: TaskProps) {
+  const handleDeleteTask = () => {
+    console.log("Deletar");
+    OnDeleteTask(id);
   };
+
   return (
     <Flex
       justifyContent={"space-around"}

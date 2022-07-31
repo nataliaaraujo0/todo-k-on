@@ -4,8 +4,10 @@ import { CardTask } from "../CardTask";
 import { v4 as uuidv4 } from "uuid";
 import { AddIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-
-export function TasksList() {
+interface TaskListProps {
+  id: string;
+}
+export function TasksList({ id }: TaskListProps) {
   const [tasks, setTasks] = useState([
     { id: uuidv4(), title: "Pedir pizza", isComplete: true },
     {
@@ -17,6 +19,10 @@ export function TasksList() {
   console.log(tasks);
 
   const [newTaskText, setNewTaskText] = useState("");
+
+  function deleteTask(id: string) {
+    alert(`Deletar task' ${id}`);
+  }
 
   const handleNewTaskChange = () => {
     setNewTaskText(event.target.value);
@@ -87,6 +93,8 @@ export function TasksList() {
               key={task.id}
               title={task.title}
               isComplete={task.isComplete}
+              OnDeleteTask={deleteTask}
+              id={task.id}
             />
           );
         })}
