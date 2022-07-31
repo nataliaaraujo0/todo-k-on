@@ -4,6 +4,9 @@ import { TaskProps } from "./task.interface";
 import styles from "./task.module.scss";
 
 export function CardTask({ title, isComplete }: TaskProps) {
+  const handleDeleteTask = (id: string) => {
+    console.log(`Ola${id}`);
+  };
   return (
     <Flex
       justifyContent={"space-around"}
@@ -30,6 +33,7 @@ export function CardTask({ title, isComplete }: TaskProps) {
         cursor={"pointer"}
         color={"blue.200"}
         _hover={{ color: "#e96e74" }}
+        onClick={handleDeleteTask}
       />
     </Flex>
   );
