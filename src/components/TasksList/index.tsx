@@ -16,12 +16,19 @@ export function TasksList({ id }: TaskListProps) {
       isComplete: false,
     },
   ]);
+
   console.log(tasks);
 
   const [newTaskText, setNewTaskText] = useState("");
 
-  function deleteTask(id: string) {
-    alert(`Deletar task' ${id}`);
+  function deleteTask(idToDelete: string) {
+    alert(`Deletando o id:' ${idToDelete}`);
+
+    const tasksWithoutDeleteOne = tasks.filter(({ id }) => {
+      return id !== idToDelete;
+    });
+
+    setTasks(tasksWithoutDeleteOne);
   }
 
   const handleNewTaskChange = () => {
