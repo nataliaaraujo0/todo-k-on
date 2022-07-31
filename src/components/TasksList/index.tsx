@@ -14,19 +14,16 @@ export function TasksList() {
       isComplete: false,
     },
   ]);
-
-  const [newTaskTextt, setNewTaskTextt] = useState("");
-
   console.log(tasks);
 
+  const [newTaskText, setNewTaskText] = useState("");
+
   const handleNewTaskChange = () => {
-    console.log("teste");
+    setNewTaskText(event.target.value);
   };
 
   const handleCreateNewTask = () => {
     event.preventDefault();
-
-    const newTaskText = event.target.task.value;
 
     const newTask = {
       id: uuidv4(),
@@ -35,6 +32,7 @@ export function TasksList() {
     };
 
     setTasks([...tasks, newTask]);
+    setNewTaskText("");
   };
 
   const handleTaskCounter = () => {
@@ -60,6 +58,7 @@ export function TasksList() {
             _placeholder={{ color: "gray" }}
             placeholder="Adicionar uma nova tarefa"
             name="task"
+            value={newTaskText}
             onChange={handleNewTaskChange}
           />
 
