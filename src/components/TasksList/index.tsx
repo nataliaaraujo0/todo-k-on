@@ -4,10 +4,8 @@ import { CardTask } from "../CardTask";
 import { v4 as uuidv4 } from "uuid";
 import { AddIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-interface TaskListProps {
-  id: string;
-}
-export function TasksList({ id }: TaskListProps) {
+
+export function TasksList() {
   const [tasks, setTasks] = useState([
     { id: uuidv4(), title: "Pedir pizza", isComplete: true },
     {
