@@ -15,14 +15,20 @@ export function TasksList() {
     },
   ]);
   console.log(tasks);
+
   const handleCreateNewTask = () => {
     event.preventDefault();
 
     const newTaskText = event.target.task.value;
 
-    setTasks([...tasks, newTaskText]);
-  };
+    const newTask = {
+      id: uuidv4(),
+      title: newTaskText,
+      isComplete: false,
+    };
 
+    setTasks([...tasks, newTask]);
+  };
   const handleTaskCounter = () => {
     const concluded: any = [];
 
