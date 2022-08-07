@@ -1,9 +1,15 @@
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Checkbox, Flex, Text } from "@chakra-ui/react";
+import { useState } from "react";
 import { TaskProps } from "./task.interface";
 import styles from "./task.module.scss";
 
-export function CardTask({ title, isComplete, id, OnDeleteTask }: TaskProps) {
+export function CardTask({ title, id, OnDeleteTask }: TaskProps) {
+  const [checked, setChecked] = useState(false);
+
+  const handleChecked = (event) => {
+    setChecked(event.target.checked);
+  };
   const handleDeleteTask = () => {
     console.log("Deletar");
     OnDeleteTask(id);
@@ -24,7 +30,8 @@ export function CardTask({ title, isComplete, id, OnDeleteTask }: TaskProps) {
         colorScheme={"purple"}
         borderColor={"purple.300"}
         className={styles.checkbox}
-        isChecked={isComplete}
+        isChecked={checked}
+        onChange={handleChecked}
       />
 
       <Text maxWidth={"600px"} color={"white"}>
