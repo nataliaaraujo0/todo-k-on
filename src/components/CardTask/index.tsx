@@ -6,9 +6,11 @@ import styles from "./task.module.scss";
 
 export function CardTask({ title, id, OnDeleteTask }: TaskProps) {
   const [checked, setChecked] = useState(false);
+  const [lineThrough, setLineThrough] = useState("");
 
   const handleChecked = (event) => {
     setChecked(event.target.checked);
+    setLineThrough("line-through");
   };
   const handleDeleteTask = () => {
     console.log("Deletar");
@@ -25,6 +27,7 @@ export function CardTask({ title, id, OnDeleteTask }: TaskProps) {
       borderRadius={"8px"}
       _hover={{ background: "blue.700" }}
       transition="800ms"
+      textDecoration={lineThrough}
     >
       <Checkbox
         colorScheme={"purple"}
