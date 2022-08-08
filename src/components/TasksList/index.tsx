@@ -19,6 +19,22 @@ export function TasksList() {
 
   const [newTaskText, setNewTaskText] = useState("");
 
+  function updateTask(task: {
+    id: string;
+    title: string;
+    isComplete: boolean;
+  }) {
+    const my_tasks = [...tasks];
+    const new_tasks = my_tasks.map((item) => {
+      if (item.id == task.id) {
+        item.isComplete = task.isComplete;
+      }
+      return item;
+    });
+    console.log(new_tasks);
+    setTasks(new_tasks);
+  }
+
   function deleteTask(idToDelete: string) {
     alert(`Deletando o id:' ${idToDelete}`);
 
@@ -105,6 +121,8 @@ export function TasksList() {
               isComplete={task.isComplete}
               OnDeleteTask={deleteTask}
               id={task.id}
+              updateTask={updateTask}
+              task={task}
             />
           );
         })}

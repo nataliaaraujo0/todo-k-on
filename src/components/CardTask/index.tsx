@@ -4,14 +4,25 @@ import { useState } from "react";
 import { TaskProps } from "./task.interface";
 import styles from "./task.module.scss";
 
-export function CardTask({ title, id, OnDeleteTask, isComplete }: TaskProps) {
+export function CardTask({
+  title,
+  id,
+  OnDeleteTask,
+  isComplete,
+  task,
+  updateTask,
+}: TaskProps) {
   const [checked, setChecked] = useState(isComplete);
   const [lineThrough, setLineThrough] = useState("");
 
-  const handleChecked = (event) => {
-    setChecked(event.target.isChecked);
+  const handleChecked = () => {
+    setChecked(true);
+    task.isComplete = true;
+    // console.log(task);
+    updateTask(task);
     setLineThrough("line-through");
   };
+
   const handleDeleteTask = () => {
     console.log("Deletar");
     OnDeleteTask(id);
