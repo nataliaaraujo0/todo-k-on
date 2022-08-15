@@ -4,16 +4,10 @@ import { CardTask } from "../CardTask";
 import { v4 as uuidv4 } from "uuid";
 import { AddIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+import { Empty } from "../Empty";
 
 export function TasksList() {
-  const [tasks, setTasks] = useState([
-    { id: uuidv4(), title: "Pedir pizza", isComplete: true },
-    {
-      id: uuidv4(),
-      title: "Começar no temporada de Boku No Hero",
-      isComplete: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   console.log(tasks);
 
@@ -117,6 +111,8 @@ export function TasksList() {
         <Info title="Concluidas" total={handleTaskCounter()} />
       </Flex>
       <Flex flexDirection={"column"}>
+        {!tasks.length && <Empty />}
+
         {tasks.map((task) => {
           return (
             <CardTask
