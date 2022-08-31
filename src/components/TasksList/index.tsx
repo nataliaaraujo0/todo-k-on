@@ -3,7 +3,7 @@ import { Info } from "../Info";
 import { CardTask } from "../CardTask";
 import { v4 as uuidv4 } from "uuid";
 import { AddIcon } from "@chakra-ui/icons";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Empty } from "../Empty";
 
 export function TasksList() {
@@ -39,11 +39,11 @@ export function TasksList() {
     setTasks(tasksWithoutDeleteOne);
   }
 
-  const handleNewTaskChange = () => {
+  const handleNewTaskChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setNewTaskText(event.target.value);
   };
 
-  const handleCreateNewTask = () => {
+  const handleCreateNewTask = (event: ChangeEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
 
     const newTask = {
