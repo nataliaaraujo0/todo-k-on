@@ -14,7 +14,7 @@
 ```
 
 ```bash
-# Criar pasta module
+# Instalar dependências
 yarn 
 ```
 
